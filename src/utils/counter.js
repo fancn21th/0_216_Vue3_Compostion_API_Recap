@@ -1,14 +1,15 @@
-import { reactive, computed } from "vue";
+import { reactive, computed, toRefs } from "vue";
 
-export default () => {
-  const state = reactive({
-    count: 0,
-    doubledCount: computed(() => state.count * 2),
-  });
+const state = reactive({
+  count: 0,
+  doubledCount: computed(() => state.count * 2),
+});
 
-  const incrementCount = () => {
-    state.count += 1;
-  };
+const incrementCount = () => {
+  state.count += 1;
+};
 
-  return [state, incrementCount];
+export default {
+  ...toRefs(state),
+  incrementCount,
 };
