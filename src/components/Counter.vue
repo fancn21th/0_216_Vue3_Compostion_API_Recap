@@ -5,14 +5,7 @@
 </template>
 
 <script setup>
-import { reactive, computed } from "vue";
+import useCounter from "../utils/counter";
 
-const state = reactive({
-  count: 0,
-  doubledCount: computed(() => state.count * 2),
-});
-
-const incrementCount = () => {
-  state.count += 1;
-};
+const [state, incrementCount] = useCounter();
 </script>
